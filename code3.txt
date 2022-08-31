@@ -1,0 +1,27 @@
+//Find all pairs with a given sum:
+
+class Solution {
+    public pair[] allPairs( long A[], long B[], long N, long M, long X) {
+        ArrayList<pair> ans = new ArrayList<>();
+        LinkedHashSet<Long> s = new LinkedHashSet<>();
+        Arrays.sort(A);
+        for(int i=0;i<M;i++)
+        {
+            s.add(B[i]);
+        }
+        for(int i=0; i<N;i++)
+        {
+            long diff = X - A[i];
+            
+            if(s.contains(diff))
+            {
+                ans.add(new pair(A[i] , diff));
+            }
+        }
+        pair[] ret = new pair[ans.size()];   
+       for(int k=0;k<ans.size();k++){
+           ret[k]=ans.get(k);
+       }
+           return ret  ;
+    }
+}
